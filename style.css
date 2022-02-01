@@ -59,6 +59,7 @@ h1 {
   text-align: center;
   text-decoration: none;
   outline: none;
+  margin-left: 10px;
 }
 
 .newTask {
