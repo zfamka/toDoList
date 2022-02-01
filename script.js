@@ -1,8 +1,13 @@
 const input = document.querySelector('.input');
-const button = document.querySelector('.button');
+const addTask = document.querySelector('.button');
 const out = document.querySelector('.out');
+const sortButton = document.querySelector('.select');
 
-button.addEventListener('click', () => {
+// event listeners
+addTask.addEventListener('click', addToDo);
+sortButton.addEventListener('change', sortBtn)
+
+function addToDo() {
 
   const newDiv = document.createElement('div');
   newDiv.classList.add('newElems');
@@ -48,47 +53,44 @@ button.addEventListener('click', () => {
 
   //clear input
   input.value = '';
-})
+}
 
-const sel = document.querySelector('.select');
-sel.addEventListener('change', () => {
+function sortBtn() {
   const newElems = document.querySelectorAll('.newElems');
 
   // sort "in progress" button
-  if (sel.value == 'inProgress') {
+  if (sortButton.value == 'inProgress') {
     input.disabled = false;
 
     for (let i = 0; i < newElems.length; i++) {
       if (newElems[i].classList.contains('toggleColor')) {
-        newElems[i].classList.add('none');
-
-      } else if (newElems[i].classList.contains('none')) {
-        newElems[i].classList.remove('none');
+        newElems[i].style.display = 'none';
+      } else {
+        newElems[i].style.display = 'flex';
       }
     }
 
     // sort "all" button
-  } else if (sel.value == 'all') {
+  } else if (sortButton.value == 'all') {
     input.disabled = false;
     for (let i = 0; i < newElems.length; i++) {
-      newElems[i].classList.remove('none');
+      newElems[i].style.display = 'flex';
     }
 
     // sort "done" button
-  } else if (sel.value == 'done') {
+  } else if (sortButton.value == 'done') {
     input.disabled = true;
 
     for (let i = 0; i < newElems.length; i++) {
       if (newElems[i].classList.contains('toggleColor') == false) {
-        newElems[i].classList.add('none');
-
-      } else if (newElems[i].classList.contains('none')) {
-        newElems[i].classList.remove('none');
+        newElems[i].style.display = 'none';
+      } else {
+        newElems[i].style.display = 'flex';
       }
     }
 
   }
-})
+}
 
 
 
