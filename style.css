@@ -51,6 +51,16 @@ h1 {
   background-color: rgb(211, 231, 248);
 }
 
+.select {
+  font-weight: 600;
+  border: 3px solid black;
+  border-radius: 20px;
+  height: 35px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+}
+
 .newTask {
   font-family: 'Balsamiq Sans', cursive;
   font-size: 20px;
@@ -132,6 +142,10 @@ h1 {
 
 .toggleColor {
   background-color: rgb(28, 240, 169);
+}
+
+.none{
+  display: none;
 }
 
 @media (min-width: 768px) {

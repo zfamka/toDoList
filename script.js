@@ -3,6 +3,7 @@ const button = document.querySelector('.button');
 const out = document.querySelector('.out');
 
 button.addEventListener('click', () => {
+
   const newDiv = document.createElement('div');
   newDiv.classList.add('newElems');
 
@@ -44,6 +45,39 @@ button.addEventListener('click', () => {
   input.value = '';
 })
 
+const sel = document.querySelector('.select');
+sel.addEventListener('click', () => {
+  let newElems = document.querySelectorAll('.newElems');
 
+  if (sel.value == 'inProgress') {
+    for (let i = 0; i < newElems.length; i++) {
+
+      if (newElems[i].classList.contains('toggleColor')) {
+        newElems[i].classList.add('none');
+
+      } else if (newElems[i].classList.contains('none')) {
+        newElems[i].classList.remove('none');
+      }
+
+    }
+
+  } else if (sel.value == 'all') {
+    for (let i = 0; i < newElems.length; i++) {
+      newElems[i].classList.remove('none');
+    }
+
+  } else if (sel.value == 'done') {
+    for (let i = 0; i < newElems.length; i++) {
+
+      if (newElems[i].classList.contains('toggleColor') == false) {
+        newElems[i].classList.add('none');
+
+      } else if (newElems[i].classList.contains('none')) {
+        newElems[i].classList.remove('none');
+      }
+
+    }
+  }
+})
 
 
