@@ -49,6 +49,7 @@ function addToDo() {
     const item = elem.target;
     const toDo = item.parentElement;
     toDo.classList.toggle('toggleColor')
+    sortBtn()
   })
 
   //clear input
