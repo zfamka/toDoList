@@ -63,32 +63,49 @@ function sortBtn() {
   if (sortButton.value == 'inProgress') {
     input.disabled = false;
 
-    for (let i = 0; i < newElems.length; i++) {
-      if (newElems[i].classList.contains('toggleColor')) {
-        newElems[i].style.display = 'none';
+    // for (let i = 0; i < newElems.length; i++) {
+    //   if (newElems[i].classList.contains('toggleColor')) {
+    //     newElems[i].style.display = 'none';
+    //   } else {
+    //     newElems[i].style.display = 'flex';
+    //   }
+    // }
+    newElems.forEach(elem => {
+      if (elem.classList.contains('toggleColor')) {
+        elem.style.display = 'none';
       } else {
-        newElems[i].style.display = 'flex';
+        elem.style.display = 'flex';
       }
-    }
+    })
 
     // sort "all" button
   } else if (sortButton.value == 'all') {
     input.disabled = false;
-    for (let i = 0; i < newElems.length; i++) {
-      newElems[i].style.display = 'flex';
-    }
+    // for (let i = 0; i < newElems.length; i++) {
+    //   newElems[i].style.display = 'flex';
+    // }
+    newElems.forEach(elem => {
+      elem.style.display = 'flex';
+    })
 
     // sort "done" button
   } else if (sortButton.value == 'done') {
     input.disabled = true;
 
-    for (let i = 0; i < newElems.length; i++) {
-      if (newElems[i].classList.contains('toggleColor') == false) {
-        newElems[i].style.display = 'none';
+    // for (let i = 0; i < newElems.length; i++) {
+    //   if (newElems[i].classList.contains('toggleColor') == false) {
+    //     newElems[i].style.display = 'none';
+    //   } else {
+    //     newElems[i].style.display = 'flex';
+    //   }
+    // }
+    newElems.forEach(elem => {
+      if (elem.classList.contains('toggleColor') == false) {
+        elem.style.display = 'none';
       } else {
-        newElems[i].style.display = 'flex';
+        elem.style.display = 'flex';
       }
-    }
+    })
 
   }
 }
